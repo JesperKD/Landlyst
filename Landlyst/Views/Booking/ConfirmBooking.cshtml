@@ -1,0 +1,107 @@
+﻿@model Landlyst.Models.OrderViewModel;
+@{
+    ViewData["Title"] = "ConfirmBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Godkend Reservation</h1>
+
+<div class="container">
+    <div style="width:250px">
+        <form asp-action="BookingPage">
+            <br />
+            <br />
+            <div>
+                <label asp-for="RoomNr" class="control-label"></label>
+                <br />
+                <input asp-for="RoomNr" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.RoomNr)</p>
+                <span asp-validation-for="RoomNr" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="StartDate" class="control-label"></label>
+                <br />
+                <input asp-for="StartDate" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.StartDate)</p>
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="EndDate" class="control-label"></label>
+                <br />
+                <input asp-for="EndDate" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.EndDate)</p>
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+                <br />
+                <br />
+                <br />
+            </div>
+
+            <h2>Personlig Info:</h2>
+            <br />
+
+            <div>
+                <label asp-for="FirstName" class="control-label"></label>
+                <br />
+                <input asp-for="FirstName" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.FirstName)</p>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="LastName" class="control-label"></label>
+                <br />
+                <input asp-for="LastName" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.LastName)</p>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="Postcode" class="control-label"></label>
+                <br />
+                <input asp-for="Postcode" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.Postcode)</p>
+                <span asp-validation-for="Postcode" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="PhoneNr" class="control-label"></label>
+                <br />
+                <input asp-for="PhoneNr" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.PhoneNr)</p>
+                <span asp-validation-for="PhoneNr" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="Email" class="control-label"></label>
+                <br />
+                <input asp-for="Email" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.Email)</p>
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="Price" class="control-label"></label>
+                <br />
+                <input asp-for="Price" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.Price)</p>
+                <span asp-validation-for="Price" class="text-danger"></span>
+                <br />
+            </div>
+
+            <input style="margin-top:20px;" type="submit" value="Godkend" class="btn btn-primary" />
+
+            <div>
+                <a asp-controller="Booking" asp-action="SearchResult">Tilbage</a>
+            </div>
+        </form>
+    </div>
+</div>

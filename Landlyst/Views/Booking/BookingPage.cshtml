@@ -1,0 +1,98 @@
+﻿@model Landlyst.Models.OrderViewModel;
+
+@{
+    ViewData["Title"] = "Booking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Booking</h1>
+
+<div class="container">
+    <div style="width:250px">
+        <form asp-action="ConfirmBooking">
+            <br />
+            <br />
+            <div>
+                <label asp-for="RoomNr" class="control-label"></label>
+                <br />
+                <input asp-for="RoomNr" class="form-control" hidden />
+                <p>@Html.DisplayFor(x => x.RoomNr)</p>
+                <span asp-validation-for="RoomNr" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <br />
+                <p> Hvis du bor på hotellet i 7 dage eller mere får du 10% rabat ved betaling i receptionen.</p>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="StartDate" class="control-label"></label>
+                <br />
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="EndDate" class="control-label"></label>
+                <br />
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+                <br />
+                <br />
+                <br />
+            </div>
+
+            <h2>Personlig Info:</h2>
+            <br />
+
+            <div>
+                <label asp-for="FirstName" class="control-label"></label>
+                <br />
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="LastName" class="control-label"></label>
+                <br />
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="Postcode" class="control-label"></label>
+                <br />
+                <input asp-for="Postcode" class="form-control" />
+                <span asp-validation-for="Postcode" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="PhoneNr" class="control-label"></label>
+                <br />
+                <input asp-for="PhoneNr" class="form-control" />
+                <span asp-validation-for="PhoneNr" class="text-danger"></span>
+                <br />
+            </div>
+
+            <div>
+                <label asp-for="Email" class="control-label"></label>
+                <br />
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <br />
+            </div>
+
+            <input style="margin-top:20px;" type="submit" value="Book" class="btn btn-primary" />
+
+            <div>
+                <a asp-controller="Booking" asp-action="SearchResult">Tilbage</a>
+            </div>
+        </form>
+    </div>
+</div>

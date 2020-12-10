@@ -1,0 +1,65 @@
+﻿@model Landlyst.Models.RoomViewModel;
+
+@{
+    ViewData["Title"] = "Find Værelse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vælg ønskede tillægsydelser</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="RoomSearch">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.Balcony" class="control-label"></label>
+                <br />
+                <input asp-for="@Model.Balcony" type="checkbox" />
+                <span asp-validation-for="@Model.Balcony" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Doublebed" class="control-label"></label>
+                <br />
+                <input asp-for="@Model.Doublebed" type="checkbox" />
+                <span asp-validation-for="@Model.Doublebed" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Split_Beds" class="control-label"></label>
+                <br />
+                <input asp-for="@Model.Split_Beds" type="checkbox" />
+                <span asp-validation-for="@Model.Split_Beds" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Bathtub" class="control-label"></label>
+                <br />
+                <input asp-for="@Model.Bathtub" type="checkbox" />
+                <span asp-validation-for="@Model.Bathtub" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Jacuzzi" class="control-label"></label>
+                <br />
+                <input asp-for="@Model.Jacuzzi" type="checkbox" />
+                <span asp-validation-for="@Model.Jacuzzi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Kitchen" class="control-label"></label>
+                <br />
+                <input asp-for="@Model.Kitchen" type="checkbox" />
+                <span asp-validation-for="@Model.Kitchen" class="text-danger"></span>
+            </div>
+
+            <br />
+            <input style="margin-top:20px;" type="submit" value="Søg" class="btn btn-primary" />
+
+            <div>
+                <a asp-controller="Home" asp-action="Index">Tilbage</a>
+            </div>
+        </form>
+    </div>
+</div>

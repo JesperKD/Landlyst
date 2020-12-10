@@ -1,0 +1,39 @@
+﻿@model List<RoomViewModel>
+
+@{
+    ViewData["Title"] = "SearchResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Værelser der stemmer overens med dine valg:</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="BookingPage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @foreach (RoomViewModel ViewModel in Model)
+            {
+                <div class="form-group">
+                    <label asp-for="@ViewModel.RoomNr" class="control-label"></label>
+                    <br />
+                    <input asp-for="@ViewModel.RoomNr" class="form-control" />
+                    <span asp-validation-for="@ViewModel.RoomNr" class="text-danger"></span>
+                    @using (Html.BeginForm("BookingPage", "Booking", FormMethod.Post))
+                    {
+                        <input hidden name="roomNr" value="@ViewModel.RoomNr" />
+                        <input style="margin-top:20px" type="submit" value="Vælg Værelse" class="btn btn-primary" />
+                    }
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            }
+
+            <div>
+                <a asp-controller="Booking" asp-action="RoomSearch">Tilbage</a>
+            </div>
+        </form>
+    </div>
+</div>
