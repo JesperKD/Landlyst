@@ -15,10 +15,14 @@ namespace Landlyst.Controllers
         private static OrderViewModel orderViewModel { get; set; }
         private static RoomSearch roomSearch { get; set; }
         private static int chosenRoomNr { get; set; }
-
+        private static Data Data { get; set; }
+        
         [HttpGet]
         public IActionResult RoomSearch()
         {
+            DateCheck dateCheck = new DateCheck();
+            dateCheck.CheckOrderOutOfDate();
+
             return View();
         }
 
@@ -47,6 +51,9 @@ namespace Landlyst.Controllers
         [HttpGet]
         public IActionResult SearchResult()
         {
+
+
+
             return View(roomViewList);
         }
 
@@ -81,8 +88,13 @@ namespace Landlyst.Controllers
         }
 
 
-        public IActionResult CompletedBooking()
+        public IActionResult CompletedBooking(OrderViewModel ordViewModel)
         {
+            Data = new Data();
+            Data.UpdateDBData.SaveUpdatedRoom(ordViewModel.RoomNr);
+            Data.UpdateDBData.SaveCustomer(ordViewModel);
+            Data.UpdateDBData.SaveOrder(ordViewModel);
+
             return View();
         }
 

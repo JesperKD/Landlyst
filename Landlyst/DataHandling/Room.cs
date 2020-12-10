@@ -21,6 +21,6 @@ namespace Landlyst.DataHandling
 
         public bool Kitchen { get; set; }
 
-        public bool RoomStatus { get; set; }
+        public int RoomStatus { get; set; }
     }
 }

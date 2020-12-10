@@ -44,7 +44,6 @@ namespace Landlyst.DataHandling
                     orders.Add(f);
                 }
 
-                connection.Close();
             }
             return orders;
         }
@@ -72,7 +71,7 @@ namespace Landlyst.DataHandling
                     bool bathtub = (bool)rdr["bathtub"];
                     bool jacuzzi = (bool)rdr["jacuzzi"];
                     bool kitchen = (bool)rdr["kitchen"];
-                    bool roomstatus = (bool)rdr["RoomStatus"];
+                    int roomstatus = (int)rdr["RoomStatus"];
 
                     Room f = new Room();
                     f.RoomNr = RoomNr;
@@ -87,10 +86,47 @@ namespace Landlyst.DataHandling
                     rooms.Add(f);
                 }
 
-                connection.Close();
             }
             return rooms;
         }
 
+        /// <summary>
+        /// Returns a list of all customers in the database
+        /// </summary>
+        /// <returns></returns>
+        public List<Customer> GetCustomers()
+        {
+            List<Customer> customerList = new List<Customer>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectDB.ConnectionSource()))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("exec SelectAllCustomers", connection);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    int CustomerID = (int)rdr["CustomerID"];
+                    int Postcode = (int)rdr["Postcode"];
+                    string firstname = (string)rdr["Fname"];
+                    string lastname = (string)rdr["Lname"];
+                    int PhoneNr = (int)rdr["PhoneNr"];
+                    string Email = (string)rdr["Email"];
+
+
+                    Customer f = new Customer();
+                    f.CustomerID = CustomerID;
+                    f.Postcode = Postcode;
+                    f.FirstName = firstname;
+                    f.LastName = lastname;
+                    f.PhoneNr = PhoneNr;
+                    f.Email = Email;
+
+                    customerList.Add(f);
+                }
+
+            }
+            return customerList;
+        }
     }
 }

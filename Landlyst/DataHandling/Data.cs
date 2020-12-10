@@ -8,12 +8,12 @@ namespace Landlyst.DataHandling
     public class Data
     {
         public GetDBData GetDBData = new GetDBData();
-        public SaveDBData SaveDBData = new SaveDBData();
+        public UpdateDBData UpdateDBData = new UpdateDBData();
 
         public Data()
         {
             GetDBData = new GetDBData();
-            SaveDBData = new SaveDBData();
+            UpdateDBData = new UpdateDBData();
         }
     }
 }

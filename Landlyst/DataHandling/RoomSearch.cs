@@ -8,17 +8,21 @@ namespace Landlyst.DataHandling
 {
     public class RoomSearch
     {
-        private static GetDBData GetDBData { get; set; }
+        private static Data Data { get; set; }
 
-
+        /// <summary>
+        /// Returns rooms that match chosen inventory
+        /// </summary>
+        /// <param name="roomModel"></param>
+        /// <returns></returns>
         public List<RoomViewModel> searchRooms(RoomViewModel roomModel)
         {
-            GetDBData = new GetDBData();
+            Data = new Data();
             List<RoomViewModel> tempList = new List<RoomViewModel>();
 
-            foreach (Room item in GetDBData.GetRooms())
+            foreach (Room item in Data.GetDBData.GetRooms())
             {
-                if (roomModel.Balcony == item.Balcony && roomModel.Doublebed == item.Doublebed && roomModel.Split_Beds == item.Split_Beds && roomModel.Bathtub == item.Bathtub && roomModel.Jacuzzi == item.Jacuzzi && roomModel.Kitchen == item.Kitchen)
+                if (item.RoomStatus == 1 && roomModel.Balcony == item.Balcony && roomModel.Doublebed == item.Doublebed && roomModel.Split_Beds == item.Split_Beds && roomModel.Bathtub == item.Bathtub && roomModel.Jacuzzi == item.Jacuzzi && roomModel.Kitchen == item.Kitchen)
                 {
                     RoomViewModel tempModel = new RoomViewModel();
 
@@ -36,12 +40,17 @@ namespace Landlyst.DataHandling
             return tempList;
         }
 
+        /// <summary>
+        /// returns room object of ordered room
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
         public Room FindOrderedRoom(OrderViewModel order)
         {
-            GetDBData = new GetDBData();
+            Data = new Data();
             Room room = new Room();
 
-            foreach (Room item in GetDBData.GetRooms())
+            foreach (Room item in Data.GetDBData.GetRooms())
             {
                 if (order.RoomNr == item.RoomNr)
                 {
@@ -51,6 +60,5 @@ namespace Landlyst.DataHandling
 
             return room;
         }
-
     }
 }

@@ -9,6 +9,10 @@ namespace Landlyst.DataHandling
 {
     public static class ConnectDB
     {
+        /// <summary>
+        /// Returns a connection string for the Database
+        /// </summary>
+        /// <returns></returns>
         public static string ConnectionSource()
         {
             string[] file = File.ReadAllLines($"{Environment.CurrentDirectory}\\DatabaseConnect.txt");

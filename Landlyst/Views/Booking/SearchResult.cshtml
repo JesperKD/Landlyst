@@ -18,7 +18,8 @@
                 <div class="form-group">
                     <label asp-for="@ViewModel.RoomNr" class="control-label"></label>
                     <br />
-                    <input asp-for="@ViewModel.RoomNr" class="form-control" />
+                    <input asp-for="@ViewModel.RoomNr" class="form-control" disabled />
+                    <input asp-for="@ViewModel.RoomNr" class="form-control" hidden />
                     <span asp-validation-for="@ViewModel.RoomNr" class="text-danger"></span>
                     @using (Html.BeginForm("BookingPage", "Booking", FormMethod.Post))
                     {

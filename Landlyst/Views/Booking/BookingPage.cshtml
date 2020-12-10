@@ -15,17 +15,13 @@
             <div>
                 <label asp-for="RoomNr" class="control-label"></label>
                 <br />
+                <input asp-for="RoomNr" class="form-control" disabled />
                 <input asp-for="RoomNr" class="form-control" hidden />
-                <p>@Html.DisplayFor(x => x.RoomNr)</p>
                 <span asp-validation-for="RoomNr" class="text-danger"></span>
                 <br />
             </div>
 
-            <div>
-                <br />
-                <p> Hvis du bor på hotellet i 7 dage eller mere får du 10% rabat ved betaling i receptionen.</p>
-                <br />
-            </div>
+
 
             <div>
                 <label asp-for="StartDate" class="control-label"></label>
@@ -40,6 +36,11 @@
                 <br />
                 <input asp-for="EndDate" class="form-control" />
                 <span asp-validation-for="EndDate" class="text-danger"></span>
+                <br />
+                
+            </div>
+            <div>
+                <p> Hvis du bor på hotellet i 7 dage eller mere får du 10% rabat ved betaling i receptionen.</p>
                 <br />
                 <br />
                 <br />
